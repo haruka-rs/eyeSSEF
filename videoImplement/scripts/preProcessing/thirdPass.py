@@ -100,7 +100,7 @@ def madFilter(df):
             if abs(diameters[i] - avg_neighbour) > threshold:
                 is_isolated_spike = True
 
-        #If current point is an outlier AND looks like an isolated spike
+        #If current point is an outlier OR looks like an isolated spike
         if cur_deviation > threshold or is_isolated_spike:
             dprint(f"Frame {i}: diameter {diameters[i]} deviates from median {window_median} by {cur_deviation}, exceeding threshold {threshold}. Setting to NaN.")
             diameters[i] = np.nan
